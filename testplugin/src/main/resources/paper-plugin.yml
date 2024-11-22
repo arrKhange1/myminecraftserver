@@ -1,0 +1,4 @@
+name: testplugin
+version: '1.0-SNAPSHOT'
+main: com.arrKhange1.testplugin.TestPlugin
+api-version: '1.21'

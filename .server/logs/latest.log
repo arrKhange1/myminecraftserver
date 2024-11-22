@@ -1,0 +1,38 @@
+[17:23:13] [ServerMain/INFO]: [bootstrap] Running Java 22 (OpenJDK 64-Bit Server VM 22.0.1+8-16; Oracle Corporation null) on Mac OS X 15.0 (aarch64)
+[17:23:13] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-131-ver/1.21.1@84281ce (2024-10-31T17:43:44Z) for Minecraft 1.21.1
+[17:23:14] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[17:23:14] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
+[17:23:14] [ServerMain/INFO]: [PluginInitializerManager] Paper plugins (1):
+ - testplugin (1.0-SNAPSHOT)
+[17:23:16] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[17:23:17] [ServerMain/INFO]: Loaded 1290 recipes
+[17:23:17] [ServerMain/INFO]: Loaded 1399 advancements
+[17:23:18] [Server thread/INFO]: Starting minecraft server version 1.21.1
+[17:23:18] [Server thread/INFO]: Loading properties
+[17:23:18] [Server thread/INFO]: This server is running Paper version 1.21.1-131-ver/1.21.1@84281ce (2024-10-31T17:43:44Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
+[17:23:19] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[17:23:19] [Server thread/INFO]: Using 4 threads for Netty based IO
+[17:23:19] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[17:23:20] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 2 worker threads, and population gen parallelism of 2 threads
+[17:23:20] [Server thread/INFO]: Default game type: SURVIVAL
+[17:23:20] [Server thread/INFO]: Generating keypair
+[17:23:20] [Server thread/INFO]: Starting Minecraft server on *:25565
+[17:23:20] [Server thread/INFO]: Using default channel type
+[17:23:20] [Server thread/INFO]: Paper: Using libdeflate (macOS ARM64 / Apple Silicon) compression from Velocity.
+[17:23:20] [Server thread/INFO]: Paper: Using native (macOS ARM64 / Apple Silicon) cipher from Velocity.
+[17:23:20] [Server thread/INFO]: [testplugin] Loading server plugin testplugin v1.0-SNAPSHOT
+[17:23:20] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[17:23:20] [Server thread/INFO]: Preparing level "world"
+[17:23:20] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[17:23:21] [Server thread/INFO]: Time elapsed: 514 ms
+[17:23:21] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[17:23:21] [Server thread/INFO]: Time elapsed: 74 ms
+[17:23:21] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[17:23:21] [Server thread/INFO]: Time elapsed: 49 ms
+[17:23:21] [Server thread/INFO]: [testplugin] Enabling testplugin v1.0-SNAPSHOT
+[17:23:21] [Server thread/INFO]: Plugin enabled
+[17:23:21] [Server thread/INFO]: [spark] Starting background profiler...
+[17:23:23] [Server thread/INFO]: Done preparing level "world" (2.774s)
+[17:23:23] [Server thread/INFO]: Running delayed init tasks
+[17:23:23] [Server thread/INFO]: Done (10.159s)! For help, type "help"
+[17:23:23] [Server thread/INFO]: Timings Reset
