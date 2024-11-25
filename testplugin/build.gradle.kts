@@ -1,7 +1,5 @@
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
-val kotlinVersion = KotlinCompilerVersion.VERSION
-
 plugins {
     `kotlin-dsl`
     kotlin("jvm") version "1.9.22"
@@ -9,8 +7,11 @@ plugins {
 }
 
 group = "com.arrKhange1"
+
 version = "1.0.0-SNAPSHOT"
+val kotlinVersion = KotlinCompilerVersion.VERSION
 val targetJavaVersion = 21
+val fileName = "${project.name}-${project.version}.jar"
 
 repositories {
     maven {
@@ -30,7 +31,6 @@ kotlin {
 
 tasks {
     val copyPluginToDevServer by registering(Copy::class) {
-        val fileName = "${project.name}-${project.version}.jar"
         println(project.layout.projectDirectory)
         from(project.layout.buildDirectory.file("libs/$fileName"))
         into(project.layout.projectDirectory.dir("../.server/plugins"))
@@ -47,7 +47,7 @@ tasks {
 
     shadowJar {
         isZip64 = true
-        archiveFileName.set("${project.name}-${project.version}.jar")
+        archiveFileName.set(fileName)
     }
 
     build {
