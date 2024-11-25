@@ -1,5 +1,11 @@
+import org.jetbrains.kotlin.config.KotlinCompilerVersion
+
+val kotlinVersion = KotlinCompilerVersion.VERSION
+
 plugins {
     `kotlin-dsl`
+    kotlin("jvm") version "1.9.22"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "com.arrKhange1"
@@ -14,7 +20,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.3-R0.1-SNAPSHOT")
+    implementation("io.papermc.paper:paper-api:1.21.3-R0.1-SNAPSHOT")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib")
 }
 
 kotlin {
@@ -38,7 +45,14 @@ tasks {
         }
     }
 
+    shadowJar {
+        isZip64 = true
+        archiveFileName.set("${project.name}-${project.version}.jar")
+    }
 
+    build {
+        dependsOn(shadowJar)
+    }
 
     copyPluginToDevServer {
         dependsOn(build)
