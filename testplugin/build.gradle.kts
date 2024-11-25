@@ -2,7 +2,6 @@ import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
     `kotlin-dsl`
-    kotlin("jvm") version "1.9.22"
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
@@ -22,7 +21,6 @@ repositories {
 
 dependencies {
     implementation("io.papermc.paper:paper-api:1.21.3-R0.1-SNAPSHOT")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib")
 }
 
 kotlin {
