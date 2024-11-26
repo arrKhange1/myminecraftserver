@@ -1,13 +1,14 @@
 package com.arrKhange1.testplugin
 
-import com.arrKhange1.testplugin.listeners.MyEventListener
+import com.arrKhange1.testplugin.listeners.BowCommand
+import com.arrKhange1.testplugin.listeners.BowEventListener
 import org.bukkit.Material
 import org.bukkit.NamespacedKey
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.ShapedRecipe
 import org.bukkit.plugin.java.JavaPlugin
 
-class TestPlugin : JavaPlugin() {
+open class TestPlugin : JavaPlugin() {
 
     private fun addNewRecipe() {
         val key = NamespacedKey(this, "DiamondSword")
@@ -22,7 +23,8 @@ class TestPlugin : JavaPlugin() {
     }
 
     override fun onEnable() {
-        server.pluginManager.registerEvents(MyEventListener(), this)
+        server.pluginManager.registerEvents(BowEventListener(), this)
+        server.commandMap.register("bow", BowCommand("bow"))
         addNewRecipe()
     }
 
