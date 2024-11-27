@@ -1,23 +1,22 @@
 package com.arrKhange1.testplugin.listeners
 
-import net.kyori.adventure.text.TextComponent
+import com.arrKhange1.testplugin.TestPlugin
 import org.bukkit.entity.*
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.EntityShootBowEvent
 import org.bukkit.event.entity.ProjectileHitEvent
+import org.bukkit.persistence.PersistentDataType
 
-class BowEventListener : Listener {
-
-    private lateinit var playerShootingWithBow: PlayerShootingWithBow
-
+class BowEventListener(private val testPlugin: TestPlugin) : Listener {
     @EventHandler
     fun onHitArrow(event: ProjectileHitEvent) {
-        val projectileOnFinish = event.entity
-        if (projectileOnFinish.entityId == playerShootingWithBow?.arrow?.entityId) {
-            val bowLore = playerShootingWithBow.bow.lore() ?: return
-            if (bowLore.map { cmp -> (cmp as TextComponent).content() }.contains("Teleport Bow"))
-                playerShootingWithBow.player.teleport(projectileOnFinish.location)
+        if (event.entity.shooter !is Player || event.entity !is Arrow) return
+        val player = event.entity.shooter as Player
+        val arrow = event.entity as Arrow
+        val arrowStore = arrow.persistentDataContainer
+        if (arrowStore.has(testPlugin.teleportBowKey, PersistentDataType.STRING)) {
+            player.teleport(arrow.location)
         }
     }
 
@@ -27,7 +26,11 @@ class BowEventListener : Listener {
         val bow = event.bow
         val projectile = event.projectile
         if (shootingEntity is Player && bow != null && projectile is Arrow) {
-            playerShootingWithBow = PlayerShootingWithBow(shootingEntity, bow, projectile)
+            println("onShoot ${bow.itemMeta.persistentDataContainer.has(testPlugin.teleportBowKey, PersistentDataType.STRING)}")
+            val bowStore = bow.itemMeta.persistentDataContainer
+            if (bowStore.has(testPlugin.teleportBowKey, PersistentDataType.STRING)) {
+                projectile.persistentDataContainer.set(testPlugin.teleportBowKey, PersistentDataType.STRING, testPlugin.teleportBowKey.value())
+            }
         }
     }
 

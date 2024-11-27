@@ -8,7 +8,9 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.ShapedRecipe
 import org.bukkit.plugin.java.JavaPlugin
 
-open class TestPlugin : JavaPlugin() {
+class TestPlugin : JavaPlugin() {
+
+    val teleportBowKey = NamespacedKey(this, "TeleportBow")
 
     private fun addNewRecipe() {
         val key = NamespacedKey(this, "DiamondSword")
@@ -23,8 +25,8 @@ open class TestPlugin : JavaPlugin() {
     }
 
     override fun onEnable() {
-        server.pluginManager.registerEvents(BowEventListener(), this)
-        server.commandMap.register("bow", BowCommand("bow"))
+        server.pluginManager.registerEvents(BowEventListener(this), this)
+        server.commandMap.register("bow", BowCommand(this,"bow"))
         addNewRecipe()
     }
 
